@@ -7,6 +7,6 @@ const temperamentRoute = require('./temperament.js');
 const router = Router();
 
 router.use('/dogs', dogsRoute);
-router.use('/temperament', temperamentRoute);
+router.use('/dogs/temperament', temperamentRoute);
 
 module.exports = router;

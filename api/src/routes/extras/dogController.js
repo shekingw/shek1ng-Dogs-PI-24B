@@ -26,18 +26,24 @@ const modelDog = (dog) => {
 
 const getDogsDB = async () => {
 	const getDogsDB = await Dog.findAll({ include: Temperament });
-	let dog = getDogsDB.map((dog) => {
+	let dogs = getDogsDB.map((dog) => {
+		// console.log('ACA EL CONSOLE LOG', dog.temperament);
+		let temperaments = dog.temperaments.map(
+			(temperaments) => temperaments.dataValues.name,
+		);
 		return {
 			id: 300 + dog.id,
 			name: dog.name,
 			height: dog.height,
 			weight: dog.weight,
+			image: dog.image,
 			life_span: dog.life_span,
-			temperament: dog.temperament,
+			temperament: temperaments.join(', '),
+			createdInDb: dog.createdInDb,
 		};
 	});
 	try {
-		return dog;
+		return dogs;
 	} catch (error) {
 		return error;
 	}

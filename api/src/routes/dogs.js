@@ -14,7 +14,9 @@ router.get('/q', async (req, res, next) => {
 	let { name } = req.query;
 	try {
 		let dogs = await combineApiDb();
-		let nombre = await dogs.filter((dog) => dog.name.includes(name));
+		let nombre = await dogs.filter((dog) =>
+			dog.name.toLowerCase().includes(name.toLowerCase()),
+		);
 		if (nombre.length === 0) {
 			res.status(404).send('No existe un DOG con esa palabra');
 		} else {
@@ -24,24 +26,25 @@ router.get('/q', async (req, res, next) => {
 		return error;
 	}
 });
-router.get('/dog/:name', async (req, res, next) => {
-	const { name } = req.params;
+router.get('/dog/:id', async (req, res, next) => {
+	const { id } = req.params;
 	let dogs = await combineApiDb();
 	try {
-		if (name) {
-			let dogsName = await dogs.filter((dog) => dog.name == name);
-			console.log('dogsname', dogsName);
-			dogsName.length == 0
-				? res.status(404).send('No hay ningun Dog asociado con ese nombre')
-				: res.status(201).json(dogsName);
+		if (id) {
+			let dogsId = await dogs.find((dog) => dog.id == id);
+			console.log('dogsname', dogsId);
+			dogsId
+				? res.status(201).json(dogsId)
+				: res.status(404).send({ msg: 'No hay ningun Dog asociado a ese ID' });
 		}
 	} catch (error) {
-		return error;
+		res.status(404).send({ msg: 'No hay ningun Dog asociado a ese ID' });
 	}
 });
 
-router.post('/dog', async (req, res, next) => {
-	const { name, weight, height, temperament, life_span } = req.body;
+router.post('/create', async (req, res, next) => {
+	const { name, weight, height, temperament, life_span, image, createdInDb } =
+		req.body;
 	let temperamentDb = await Temperament.findAll({
 		where: { name: temperament },
 	});
@@ -50,7 +53,9 @@ router.post('/dog', async (req, res, next) => {
 			name,
 			weight,
 			height,
+			image,
 			life_span,
+			createdInDb,
 		});
 		dog.addTemperament(temperamentDb);
 		res.send('Successfully created Dog');

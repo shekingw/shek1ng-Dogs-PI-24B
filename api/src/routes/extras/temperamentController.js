@@ -17,7 +17,7 @@ const getTemperamentApi = async () => {
 			}
 		});
 		return temperamentos.forEach((e) => {
-			Temperament.create({ name: e });
+			Temperament.findOrCreate({ where: { name: e } });
 		});
 	} catch (error) {
 		return error;
@@ -29,7 +29,7 @@ const getTemperamentDb = async () => {
 	let temperament = getTemperamentDb.map((temper) => {
 		return {
 			id: temper.id,
-			name: temper.id,
+			name: temper.name,
 		};
 	});
 	try {
