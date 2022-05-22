@@ -4,6 +4,8 @@ import { postDogs, getTemperament } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import defaultImg from '../../assets/no_image.png';
 import Nav from '../NavBar/NavBar';
+import './DogCreate.css';
+import flecha from './flecha.png';
 
 function validate(input) {
 	let errors = {};
@@ -23,7 +25,7 @@ function validate(input) {
 		errors.weight = 'Se requiere indicar el peso.';
 	}
 
-	if (input.life_span > 20) {
+	if (input.life_span > 25) {
 		errors.life_span = 'La esperanza de vida no puede superar los 20 años.';
 	}
 
@@ -90,84 +92,101 @@ export function DogCreate() {
 	}, []);
 
 	return (
-		<div>
+		<div className="createContainer">
 			<Nav />
-			<Link to="/home">
-				<button>Volver</button>
+			<Link to="/home" className="volverBtn" style={{ textDecoration: 'none' }}>
+				<img src={flecha} />
 			</Link>
-			<h1>Creá tu DOG!</h1>
-			<form onSubmit={(e) => handleSubmit(e)}>
-				<div>
-					<label>Nombre: </label>
-					<input
-						type="text"
-						value={input.name}
-						name="name"
-						onChange={(e) => handleChange(e)}
-						pattern="[a-zA-Z ]{2,30}"
-						required={true}
-					/>
-					{errors.name && <p>{errors.name}</p>}
+			<h1 className="createTitle">🐶Crea tu DOG🐶</h1>
+			<form onSubmit={(e) => handleSubmit(e)} className="createForm">
+				<div className="inputContainer">
+					<div className="createName">
+						<label>Nombre: </label>
+						<input
+							type="text"
+							value={input.name}
+							name="name"
+							onChange={(e) => handleChange(e)}
+							pattern="[a-zA-Z ]{2,30}"
+							required={true}
+						/>
+						{errors.name && <p>{errors.name}</p>}
+					</div>
+					<div className="createAltura">
+						<label>Altura (metrico): </label>
+						<input
+							type="number"
+							value={input.height}
+							name="height"
+							onChange={(e) => handleChange(e)}
+							required={true}
+						/>
+						{errors.height && <p>{errors.height}</p>}
+					</div>
+					<div className="createPeso">
+						<label>Peso (metrico): </label>
+						<input
+							type="number"
+							value={input.weight}
+							name="weight"
+							onChange={(e) => handleChange(e)}
+							required={true}
+						/>
+						{errors.weight && <p>{errors.weight}</p>}
+					</div>
+					<div className="createLifeSpan">
+						<label>Esperanza de vida: </label>
+						<input
+							type="number"
+							value={input.life_span}
+							name="life_span"
+							onChange={(e) => handleChange(e)}
+							required={true}
+						/>
+						{errors.life_span && <p>{errors.life_span}</p>}
+					</div>
+					<div className="createImagen">
+						<label>Imagen (URL): </label>
+						<input
+							value={input.image}
+							name="image"
+							pattern="https?://[\w-]+(.[\w-]+)+[/#?]?.*$"
+							placeholder="Imagen URL"
+							onChange={(e) => handleChange(e)}
+						/>
+						{errors.image && <p>{errors.image}</p>}
+					</div>
+					<div className="createTemperaments">
+						<label className="Temp2">Temperamentos: </label>
+						<select
+							className=""
+							onChange={(e) => handleSelect(e)}
+							defaultValue="default"
+						>
+							<option value="default" disabled>
+								Temperamentos
+							</option>
+							{temperaments.map((temp) => (
+								<option key={temp.name} value={temp.name}>
+									{temp.name}
+								</option>
+							))}
+						</select>
+					</div>
 				</div>
 				<div>
-					<label>Altura: </label>
-					<input
-						type="number"
-						value={input.height}
-						name="height"
-						onChange={(e) => handleChange(e)}
-						required={true}
-					/>
-					{errors.height && <p>{errors.height}</p>}
+					<ul className="temperamentos">
+						<li>
+							Temperamentos Fijados: {input.temperament.map((el) => el + ', ')}
+						</li>
+					</ul>
 				</div>
-				<div>
-					<label>Peso: </label>
-					<input
-						type="number"
-						value={input.weight}
-						name="weight"
-						onChange={(e) => handleChange(e)}
-						required={true}
-					/>
-					{errors.weight && <p>{errors.weight}</p>}
-				</div>
-				<div>
-					<label>Esperanza de vida: </label>
-					<input
-						type="number"
-						value={input.life_span}
-						name="life_span"
-						onChange={(e) => handleChange(e)}
-						required={true}
-					/>
-					{errors.life_span && <p>{errors.life_span}</p>}
-				</div>
-				<div>
-					<label>Imagen: </label>
-					<input
-						value={input.image}
-						name="image"
-						pattern="https?://[\w-]+(.[\w-]+)+[/#?]?.*$"
-						placeholder="Imagen URL"
-						onChange={(e) => handleChange(e)}
-					/>
-					{errors.image && <p>{errors.image}</p>}
-				</div>
-				<select onChange={(e) => handleSelect(e)}>
-					{temperaments.map((temp) => (
-						<option key={temp.name} value={temp.name}>
-							{temp.name}
-						</option>
-					))}
-				</select>
-				<ul>
-					<li>Temperamento: {input.temperament.map((el) => el + ', ')}</li>
-				</ul>
 				<button
 					type="submit"
 					disabled={
 						!input.name || errors.name || errors.life_span ? true : false
 					}
+					className="crearBtn"
 				>
 					Crear
 				</button>

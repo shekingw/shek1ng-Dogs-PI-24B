@@ -8,15 +8,19 @@ export default function Paginado({ dogsPerPage, allDogs, paginado }) {
 	}
 
 	return (
-		<nav>
-			<ul className="paginado">
-				{pageNumbers &&
-					pageNumbers.map((number) => (
-						<li className="number" key={number}>
-							<button onClick={() => paginado(number)}>{number}</button>
-						</li>
-					))}
-			</ul>
-		</nav>
+		<div className="containerUl">
+			<div className="containerUl2">
+				<ul className="paginado">
+					{pageNumbers &&
+						pageNumbers.map((number) => (
+							<li className="number" key={number}>
+								<button className="liBtn" onClick={() => paginado(number)}>
+									{number}
+								</button>
+							</li>
+						))}
+				</ul>
+			</div>
+		</div>
 	);
 }

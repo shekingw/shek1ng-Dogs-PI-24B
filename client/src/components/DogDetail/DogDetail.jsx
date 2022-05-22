@@ -1,8 +1,11 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDogById } from '../../actions';
 import Nav from '../NavBar/NavBar';
+import loadingGif from '../../assets/loadingGif.gif';
+import './DogDetail.css';
+import flecha from '../DogCreate/flecha.png';
 
 export default function DogDetail(props) {
 	const dispatch = useDispatch();
@@ -12,20 +15,27 @@ export default function DogDetail(props) {
 		dispatch(getDogById(id));
 	}, []);
 	return (
-		<div>
+		<div className="containerDetail">
 			<Nav />
-			<h1>Detalles de Raza</h1>
+			<Link to="/home">
+				<img src={flecha} className="volverFlecha" />
+			</Link>
+			<h1 className="detailTitle">Detalles de Raza</h1>
 			{dog.name ? (
 				<>
-					<h2>{dog.name}</h2>
+					<h2>
+						<u>{dog.name}</u>
+					</h2>
 					<h4>Temperamento: {dog.temperament}</h4>
 					<h4>Esperanza de vida: {dog.life_span}</h4>
 					<h4>Peso: {dog.weight}</h4>
 					<h4>Altura: {dog.height} cm</h4>
-					<img src={dog.image} alt="dogimage" />
+					<img className="detailImg" src={dog.image} alt="dogimage" />
 				</>
 			) : (
-				<h3>Dog doesn't exist</h3>
+				<div className="detailLoading">
+					<img src={loadingGif} />
+				</div>
 			)}
 		</div>
 	);

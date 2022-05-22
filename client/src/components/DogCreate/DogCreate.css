@@ -1,0 +1,144 @@
+.createContainer {
+	text-align: center;
+}
+
+/* .createForm {
+
+} */
+
+.inputContainer {
+	display: inline-block;
+	text-align: center;
+}
+
+.volverBtn {
+	display: flex;
+	text-align: start;
+	margin-top: 20px;
+	margin-left: 30px;
+	height: 50px;
+}
+
+.createTitle {
+	display: inline-block;
+	padding: 10px;
+	border-radius: 6px;
+	box-shadow: 0px 0px 5px 0px rgba(182, 120, 12, 1);
+	border: 2px solid #a26f06;
+}
+
+.createName {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	padding: 8px;
+	border-radius: 6px;
+	border: 2px solid #a26f06;
+	margin-top: 10px;
+	box-shadow: 0px 0px 5px 0px rgba(182, 120, 12, 1);
+}
+
+.inputContainer p {
+	color: red;
+}
+.createName input {
+	border-radius: 100px;
+	border: 1px solid #000;
+}
+.createAltura input {
+	border-radius: 100px;
+	border: 1px solid #000;
+}
+.createPeso input {
+	border-radius: 100px;
+	border: 1px solid #000;
+}
+.createLifeSpan input {
+	border-radius: 100px;
+	border: 1px solid #000;
+}
+.createImagen input {
+	border-radius: 100px;
+	border: 1px solid #000;
+}
+.createAltura {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	padding: 10px;
+	border-radius: 6px;
+	border: 2px solid #a26f06;
+	margin-top: 10px;
+	box-shadow: 0px 0px 5px 0px rgba(182, 120, 12, 1);
+}
+.createPeso {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	padding: 10px;
+	border-radius: 6px;
+	border: 2px solid #a26f06;
+	box-shadow: 0px 0px 5px 0px rgba(182, 120, 12, 1);
+	margin-top: 10px;
+}
+.createLifeSpan {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	padding: 10px;
+	border-radius: 6px;
+	border: 2px solid #a26f06;
+	margin-top: 10px;
+	box-shadow: 0px 0px 5px 0px rgba(182, 120, 12, 1);
+}
+.createImagen {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	padding: 10px;
+	border-radius: 6px;
+	border: 2px solid #a26f06;
+	margin-top: 10px;
+	box-shadow: 0px 0px 5px 0px rgba(182, 120, 12, 1);
+}
+.temperamentos {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	padding: 10px;
+	margin-top: 10px;
+	list-style: none;
+}
+
+.createTemperaments {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	padding: 10px;
+	border-radius: 6px;
+	border: 2px solid #a26f06;
+	margin-top: 10px;
+	box-shadow: 0px 0px 5px 0px rgba(182, 120, 12, 1);
+}
+
+.createTemperaments select {
+	border-radius: 100px;
+	border: 1px solid #000;
+}
+
+.crearBtn {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 25px;
+	font-size: 1em;
+	border-radius: 7px;
+	border: 2px solid #a26f06;
+	background: #f3f1f1;
+	cursor: pointer;
+	color: black;
+	box-shadow: 0px 0px 5px 0px rgba(182, 120, 12, 1);
+}
+
+.crearBtn:hover {
+	color: #a26f06;
+}
+
+.crearBtn:active {
+	transform: translateY(2px);
+}

@@ -1,3 +1,81 @@
+.divGeneral {
+	background-color: #f3f1f1;
+	min-height: 100vh;
+	min-width: 100%;
+}
+
 .divLanding {
-	background-color: red;
+	margin: auto;
+	display: table;
+}
+.divImg {
+	display: flex;
+	text-align: center;
+	max-width: 50em;
+	padding-top: 7em;
+}
+
+.h1Div {
+	margin-left: 5em;
+	margin-bottom: 2em;
+	font-family: monospace;
+	/* float: left; */
+	position: relative;
+	color: rgb(0, 0, 0);
+	font-size: 3em;
+	padding-top: 2em;
+}
+
+h1 span {
+	position: absolute;
+	right: 0;
+	width: 0;
+	background: rgb(243, 241, 241);
+	border-left: 1px solid #000;
+
+	animation: maquina 2s infinite alternate steps(25);
+}
+
+.linkDiv {
+	margin-left: 26em;
+	text-decoration: none;
+	font-family: 'arial black';
+	font-weight: bold;
+	color: #000000 !important;
+	font-size: 14px;
+	text-shadow: 0px 0px 0px #7cacde;
+	box-shadow: 1px 2px 3px #240d07;
+	padding: 11px 21px;
+	border-radius: 7px;
+	border: 1px solid #000000;
+	background: #f3f1f1;
+}
+.linkDiv:hover {
+	color: #6b6b6b !important;
+	background: #e8e8e8;
+}
+
+.linkDiv:active {
+	background-color: white;
+}
+
+@keyframes fanimado {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes maquina {
+	from {
+		width: 100%;
+	}
+	to {
+		width: 0;
+	}
 }
