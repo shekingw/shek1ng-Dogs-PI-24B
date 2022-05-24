@@ -94,13 +94,13 @@ h1 span {
 .container-linkedin {
 	display: flex;
 	position: absolute;
-	margin-left: 35em;
+	margin-left: 37em;
 }
 
 .container-github {
 	display: flex;
 	position: absolute;
-	margin-left: 40em;
+	margin-left: 47em;
 	background: black;
 	border: 1px solid white;
 	border-radius: 15px;
