@@ -6,6 +6,7 @@ import Home from './components/Home/Home.jsx';
 import DogDetail from './components/DogDetail/DogDetail.jsx';
 import Nav from './components/NavBar/NavBar';
 import { DogCreate } from './components/DogCreate/DogCreate.jsx';
+import NotFound from './components/NotFound/NotFound.jsx';
 function App() {
 	return (
 		<Router>
@@ -15,6 +16,7 @@ function App() {
 					<Route exact path="/home" element={<Home />} />
 					<Route exact path="/dogs/:id" element={<DogDetail />} />
 					<Route exact path="/dogs/create" element={<DogCreate />} />
+					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</div>
 		</Router>

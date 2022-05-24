@@ -12,11 +12,19 @@ export function getDogs() {
 
 export function getDogById(id) {
 	return async function (dispatch) {
-		var json = await axios(`http://localhost:3001/dogs/dog/${id}`);
-		return dispatch({
-			type: 'GET_DOGS_ID',
-			payload: json.data,
-		});
+		var json = await axios(`http://localhost:3001/dogs/dog/${id}`)
+			.then((result) => {
+				return dispatch({
+					type: 'GET_DOGS_ID',
+					payload: result.data,
+				});
+			})
+			.catch((error) => {
+				return dispatch({
+					type: 'GET_DOGS_ID',
+					payload: error.response.data,
+				});
+			});
 	};
 }
 

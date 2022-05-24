@@ -32,12 +32,15 @@ router.get('/dog/:id', async (req, res, next) => {
 	try {
 		if (id) {
 			let dogsId = await dogs.find((dog) => dog.id == id);
-			dogsId
-				? res.status(201).json(dogsId)
-				: res.status(404).send({ msg: 'No hay ningun Dog asociado a ese ID' });
+			if (dogsId) {
+				return res.status(201).json(dogsId);
+			}
+			return res
+				.status(404)
+				.json({ msg: 'No hay ningun Dog asociado a ese ID' });
 		}
 	} catch (error) {
-		res.status(404).send({ msg: 'No hay ningun Dog asociado a ese ID' });
+		res.status(404).json({ msg: 'No hay ningun Dog asociado a ese ID' });
 	}
 });
 

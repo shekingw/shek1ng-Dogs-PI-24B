@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDogById } from '../../actions';
@@ -10,10 +10,20 @@ import flecha from '../DogCreate/flecha.png';
 export default function DogDetail(props) {
 	const dispatch = useDispatch();
 	const dog = useSelector((state) => state.dog);
+	const navigate = useNavigate();
 	let { id } = useParams();
 	useEffect(() => {
 		dispatch(getDogById(id));
 	}, []);
+
+	useEffect(() => {
+		if (Object.keys(dog).length > 0) {
+			if (dog.hasOwnProperty('msg')) {
+				navigate('/*');
+			}
+		}
+	}, [dog]);
+
 	return (
 		<div className="containerDetail">
 			<Nav />

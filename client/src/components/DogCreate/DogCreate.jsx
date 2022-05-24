@@ -107,7 +107,7 @@ export function DogCreate() {
 							value={input.name}
 							name="name"
 							onChange={(e) => handleChange(e)}
-							pattern="[a-zA-Z ]{2,30}"
+							pattern="[a-zA-Z ]{2,50}"
 							required={true}
 						/>
 						{errors.name && <p>{errors.name}</p>}

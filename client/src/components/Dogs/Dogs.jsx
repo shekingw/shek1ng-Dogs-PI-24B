@@ -12,7 +12,6 @@ import Paginado from '../Paginado/Paginado.jsx';
 import { filterTemperament, filterCreated } from '../../actions';
 import './Dogs.css';
 import '../Paginado/Paginado.css';
-import asoma3 from '../../assets/asoma_3.png';
 import loadingGif from '../../assets/loadingGif.gif';
 
 export default function Dogs() {
