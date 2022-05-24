@@ -28,6 +28,12 @@ export function getDogById(id) {
 	};
 }
 
+export function clearDog() {
+	return {
+		type: 'CLEAR_DOG',
+	};
+}
+
 export function getNameDogs(name) {
 	return async function (dispatch) {
 		try {

@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { getTemperament } from '../../actions';
 import './LandingPage.css';
 import dogsAsoman from '../../assets/asoma_2.png';
+import linkedin from '../../assets/linkedin.png';
+import github from '../../assets/github.png';
 
 export default function LandingPage() {
 	const dispatch = useDispatch();
@@ -19,6 +21,20 @@ export default function LandingPage() {
 				</Link>
 				<img src={dogsAsoman} className="divImg" />
 			</div>
+			<footer className="footer">
+				<div className="container-footer">
+					<div className="container-linkedin">
+						<a href="https://www.linkedin.com/in/alan-otero-336687223/">
+							<img src={linkedin} className="img-linkedin" />
+						</a>
+					</div>
+					<div className="container-github">
+						<a href="https://github.com/shek1ng">
+							<img src={github} className="img-github" />
+						</a>
+					</div>
+				</div>
+			</footer>
 		</div>
 	);
 }

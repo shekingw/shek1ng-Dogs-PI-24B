@@ -1,7 +1,7 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDogById } from '../../actions';
+import { clearDog, getDogById } from '../../actions';
 import Nav from '../NavBar/NavBar';
 import loadingGif from '../../assets/loadingGif.gif';
 import './DogDetail.css';
@@ -14,6 +14,7 @@ export default function DogDetail(props) {
 	let { id } = useParams();
 	useEffect(() => {
 		dispatch(getDogById(id));
+		return () => dispatch(clearDog());
 	}, []);
 
 	useEffect(() => {

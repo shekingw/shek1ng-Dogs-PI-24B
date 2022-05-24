@@ -79,3 +79,37 @@ h1 span {
 		width: 0;
 	}
 }
+
+.footer {
+	background: black;
+	margin-top: 2em;
+	text-align: center;
+}
+
+.container-footer {
+	display: flex;
+	position: absolute;
+}
+
+.container-linkedin {
+	display: flex;
+	position: absolute;
+	margin-left: 35em;
+}
+
+.container-github {
+	display: flex;
+	position: absolute;
+	margin-left: 40em;
+	background: black;
+	border: 1px solid white;
+	border-radius: 15px;
+}
+
+.img-linkedin {
+	width: 2em;
+}
+
+.img-github {
+	width: 2em;
+}

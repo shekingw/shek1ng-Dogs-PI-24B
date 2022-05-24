@@ -9,7 +9,7 @@ import flecha from './flecha.png';
 
 function validate(input) {
 	let errors = {};
-	if (!input.name) {
+	if (!input.name || input.name[0].includes(' ')) {
 		errors.name = 'Se requiere indicar un nombre.';
 	}
 	if (input.height > 150) {
@@ -34,7 +34,6 @@ function validate(input) {
 	}
 	return errors;
 }
-
 export function DogCreate() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
