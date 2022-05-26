@@ -94,7 +94,7 @@ export function DogCreate() {
 		<div className="createContainer">
 			<Nav />
 			<Link to="/home" className="volverBtn" style={{ textDecoration: 'none' }}>
-				<img src={flecha} />
+				<img src={flecha} alt="flecha2" />
 			</Link>
 			<h1 className="createTitle">🐶Crea tu DOG🐶</h1>
 			<form onSubmit={(e) => handleSubmit(e)} className="createForm">

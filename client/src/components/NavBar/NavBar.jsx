@@ -1,15 +1,11 @@
 import { Link } from 'react-router-dom';
 import icon from '../../assets/icon_dog.png';
 import './NavBar.css';
-import barras from '../../assets/barras.png';
 
 export default function Nav() {
 	return (
 		<nav className="container">
 			<div className="navDiv">
-				<button className="nav-toggle">
-					<img src={barras} className="nav-barras" />
-				</button>
 				<Link to="/home" className="container-icon">
 					<img src={icon} className="navImg" alt="main icon" to="/home" />
 				</Link>

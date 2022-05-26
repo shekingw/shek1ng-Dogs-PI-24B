@@ -29,7 +29,7 @@ export default function DogDetail(props) {
 		<div className="containerDetail">
 			<Nav />
 			<Link to="/home">
-				<img src={flecha} className="volverFlecha" />
+				<img src={flecha} className="volverFlecha" alt="volver" />
 			</Link>
 			<h1 className="detailTitle">Detalles de Raza</h1>
 			{dog.name ? (
@@ -45,7 +45,7 @@ export default function DogDetail(props) {
 				</>
 			) : (
 				<div className="detailLoading">
-					<img src={loadingGif} />
+					<img src={loadingGif} alt="loading" />
 				</div>
 			)}
 		</div>

@@ -27,12 +27,11 @@ const modelDog = (dog) => {
 const getDogsDB = async () => {
 	const getDogsDB = await Dog.findAll({ include: Temperament });
 	let dogs = getDogsDB.map((dog) => {
-		// console.log('ACA EL CONSOLE LOG', dog.temperament);
 		let temperaments = dog.temperaments.map(
 			(temperaments) => temperaments.dataValues.name,
 		);
 		return {
-			id: 300 + dog.id,
+			id: dog.id,
 			name: dog.name,
 			height: dog.height,
 			weight: dog.weight,

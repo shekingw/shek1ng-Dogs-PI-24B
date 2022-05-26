@@ -21,7 +21,7 @@ export default function NotFound() {
 		<div className="container404">
 			<div className="container-notFound">
 				<Nav />
-				<img src={image404} className="image404" />
+				<img src={image404} className="image404" alt="404" />
 				<p>Seras redireccionado en 5 segundos..</p>
 				{NotFound404()}
 			</div>

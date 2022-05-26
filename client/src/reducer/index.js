@@ -3,6 +3,7 @@ const initialState = {
 	dog: {},
 	allDogs: [],
 	temperaments: [],
+	allTemperaments: [],
 };
 function rootReducer(state = initialState, action) {
 	switch (action.type) {
@@ -48,6 +49,11 @@ function rootReducer(state = initialState, action) {
 			return {
 				...state,
 				temperaments: action.payload,
+			};
+		case 'GET_ALL_TEMPERAMENTS':
+			return {
+				...state,
+				allTemperaments: action.payload,
 			};
 		case 'FILTER_CREATED':
 			let allDogs = state.allDogs;

@@ -24,8 +24,8 @@ const {
 } = require('./src/routes/extras/temperamentController.js');
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-	server.listen(3001, () => {
+conn.sync({ force: false }).then(() => {
+	server.listen(process.env.PORT, () => {
 		console.log('%s listening at 3001'); // eslint-disable-line no-console
 		getTemperamentApi();
 	});
